@@ -1,9 +1,7 @@
 <style scoped>
 
-.wrapper{
-}
 .text-block{
-   width: 570px;
+   /* width: 570px; */
   
   border-radius: 10px;
   background: #2721219f;
@@ -18,39 +16,12 @@
 .joke-container{
    display: flex;
     flex-direction: row;
-    width: 650px;
+    width: 100%;
     flex-wrap: wrap;
-    /* justify-content: space-between; */
     justify-content: flex-start;
     gap:25px;
 }
-.joke{
-  width: 250px;
-  border-radius: 10px;
-  background: #2721219f;
-  text-align: center;
-  color: white;
-  backdrop-filter: blur(10px);
-  border: 2px solid rgb(17, 207, 255);
-  text-align: left;
-  padding: 20px;
-}
-.wrapper .idjoke{
-  font-size: 12px;
-  font-weight: 300;
-}
-.wrapper .typejoke{
-  font-size: 12px;
-  font-weight: 300;
-}
-.wrapper .setupjoke{
-  font-size: 16px;
-  font-weight: 400;
-}
-.wrapper .punchlinejoke{
- font-size: 16px;
-  font-weight: 400;
-}
+
 .wrapper a{
   color:white;
   margin-bottom: 10px;
@@ -79,7 +50,8 @@
 
 
 <template>
-  <div class="wrapper">
+  <headers />
+  <main class="wrapper content-width">
     <div class="text-block">
       <h1>Первый проект на vue js</h1>
       <p>Демонстарция работы со сторонней api и вывод результата</p>
@@ -90,18 +62,23 @@
       <a href="https://github.com/15Dkatz/official_joke_api" target="_blank">Ссылка на используемое api</a>
       <button  @click="getJoke()">Получить шутку</button>
       <p class="error">{{ error }}</p>
-
     </div>
+
     <div class="joke-container">
-      <div class="joke" v-if="joke != null" v-for="value in joke" :key="id">
-        <p class="idjoke">Номер шутки: {{ value.id }}</p>
-        <p class="typejoke">Категория шуток: {{ value.type }}</p>
-        <p class="setupjoke">Сетап: {{ value.setup }}</p>
-        <p class="punchlinejoke">Панчлайн: {{ value.punchline }}</p>
-      </div>
+    <arrayjoke 
+    v-for="item in joke"
+      :array= "{
+          id: item.id ,
+          type: item.type ,
+          setup: item.setup ,
+          punchline: item.punchline ,
+          }"
+    />
     </div>
-  </div>
+    
 
+  </main>
+<footer  class="footer"></footer >
 </template>
 
 
@@ -109,6 +86,9 @@
 
 import { ref } from 'vue';
 import axios from 'axios';
+
+import headers from './components/header.vue';
+import arrayjoke from './components/joke.vue';
 
 let error = ref("");
 let joke= ref([]);

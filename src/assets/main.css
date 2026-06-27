@@ -5,12 +5,24 @@
   padding: 0;
 }
 body{
-  width: 100%;
+  /* width: 100%;
   min-height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
    font-family: "Jost", sans-serif;
+}
+
+.content-width{
+  max-width: var( --global-content-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (max-width: 1300px) {
+      .content-width{
+        padding-right: 24px;
+        padding-left: 24px;
+      }
 }
 
 
@@ -36,6 +48,7 @@ body{
   }
 }
 :root {
+  --global-content-width:1290px;
   --c1: red;
   --c2: orange;
   animation: shift 10s linear infinite;
