@@ -105,29 +105,25 @@
 </template>
 
 
-<script scoped>
-import axios from "axios"
-export default{
-  data(){
-    return{
-      joke:[],
-      city:"",
-      error:"",
-    }
-  },
-  methods:{
-    getJoke(){
-      axios.get(`https://official-joke-api.appspot.com/random_joke`)
+<script setup>
+
+import { ref } from 'vue';
+import axios from 'axios';
+
+let error = ref("");
+let joke= ref([]);
+
+function getJoke() {
+    axios.get(`https://official-joke-api.appspot.com/random_joke`)
       .then(res=>(this.joke.push({
         id: res.data.id,
         type: res.data.type,
         setup: res.data.setup,
         punchline: res.data.punchline,
        })))
-
-      this.error=""
-    }
-  }
+        this.error=""
+    
 }
+
 </script>
 
