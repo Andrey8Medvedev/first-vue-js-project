@@ -5,12 +5,29 @@
         <p class="typejoke">Категория шуток: {{ array.type }}</p>
         <p class="setupjoke">Сетап: {{ array.setup }}</p>
         <p class="punchlinejoke">Панчлайн: {{ array.punchline }}</p>
+        <button  v-if="array.statusBtn === 'add'" class="save-joke" @click="addJoke(array)">Сохранить</button>
+        <button  v-if="array.statusBtn === 'delete'"  class="delete-joke" @click="jokeStore.deletejoke(array.id)">Удалить</button>
       </div>
     
 </template>
 
 <script setup>
+import { useJokeStore } from '@/stores/JokeStore';
 const props = defineProps(['array'])
+
+const jokeStore = useJokeStore()
+
+function addJoke(array) {
+    console.log(array.id)
+    jokeStore.joke.push({
+        id: array.id,
+        type: array.type,
+        setup: array.setup,
+        punchline: array.punchline,
+       })
+}
+
+
 </script>
 
 <style scoped>
@@ -45,6 +62,23 @@ const props = defineProps(['array'])
 }
 
 
+
+  button{
+      display: block;
+      background: #e3dc4b;
+      color: #000000;
+      border-radius: 10px;
+      border: 2px solid #b99935;
+      padding: 10px 15px;
+      cursor: pointer;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 15px;
+      font-size: 15px;
+  }
+  button:hover{
+        transform: scale(1.1) translateY(-5px);
+      }
 
 
 </style>

@@ -1,11 +1,13 @@
 import { createMemoryHistory, createRouter } from 'vue-router'
 
 import HomeView from '../views/Home.vue'
-import SaveJokeView from '../views/Joke.vue'
+import JokeView from '../views/Joke.vue'
+import SaveJokeView from '../views/SaveJoke.vue'
 
 const routes = [
   { path: '/', component: HomeView },
-  { path: '/joke', component: SaveJokeView }
+  { path: '/joke', component: JokeView },
+  { path: '/savejoke', component: SaveJokeView }
 ]
 
 const router = createRouter({

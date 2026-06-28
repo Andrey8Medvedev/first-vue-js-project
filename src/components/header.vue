@@ -5,7 +5,6 @@
                 <li><RouterLink  to="/">Главная</RouterLink></li>
                 <li><RouterLink  to="/joke/">Генерация шуток</RouterLink></li>
                 <li><RouterLink  to="/savejoke/">Сохраненные шутки</RouterLink></li>
-                <li><RouterLink  to="/contacts/">Контакты</RouterLink></li>
             </ul>
         </nav>
     </header>

@@ -1,47 +1,29 @@
 <template>
    <div class="text-block">
-      <h1>Генератор случайных шуток</h1>
-      <p>Получеине случайных шуток по api</p>
-      <a href="https://github.com/15Dkatz/official_joke_api" target="_blank">Ссылка на используемое api</a>
-      <button  @click="getJoke()">Получить шутку</button>
-      <p class="error">{{ error }}</p>
+      <h1>Сохраненные  шутки</h1>
+      <p>Здесь хранятся шутки которые вы сохранили</p>
+
     </div>
 
     <div class="joke-container">
     <arrayjoke 
-    v-for="item in joke"
+    v-for="item in jokeStore.joke"
       :array= "{
           id: item.id ,
           type: item.type ,
           setup: item.setup ,
           punchline: item.punchline ,
-          statusBtn: 'add',
+          statusBtn: 'delete',
           }"
     />
     </div>
 </template>
 
 <script setup>
-
-import { ref } from 'vue';
-import axios from 'axios';
-
+import { useJokeStore } from '@/stores/JokeStore.js';
 import arrayjoke from '../components/joke.vue';
 
-let error = ref("");
-let joke= ref([]);
-
-function getJoke() {
-    axios.get(`https://official-joke-api.appspot.com/random_joke`)
-      .then(res=>(this.joke.push({
-        id: res.data.id,
-        type: res.data.type,
-        setup: res.data.setup,
-        punchline: res.data.punchline,
-       })))
-        this.error=""
-    
-}
+const jokeStore = useJokeStore()
 
 </script>
 
