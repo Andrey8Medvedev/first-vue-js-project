@@ -1,16 +1,35 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
 
+
+:root {
+  /* --global-content-width:1290px; */
+  --global-content-width:800px;
+
+  --bg-dark: #0a0a0b;
+  --text-main: #f4f4f5;
+  --text-muted: #a1a1aa;
+
+  /* Clay-like variables */
+  --clay-base: #18181b;
+  --clay-highlight: rgba(255, 255, 255, 0.08);
+  --clay-shadow: rgba(0, 0, 0, 0.9);
+  --clay-inset-light: rgba(255, 255, 255, 0.04);
+  --clay-inset-dark: rgba(0, 0, 0, 0.6);
+}
+
 * {
   margin: 0;
   padding: 0;
 }
 body{
-  /* width: 100%;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center; */
    font-family: "Jost", sans-serif;
+
+     background-color: var(--bg-dark);
+  color: var(--text-main);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  overflow-x: hidden;
+  line-height: 1.5;
 }
 
 .content-width{
@@ -25,37 +44,20 @@ body{
       }
 }
 
+.grid-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.02) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 40px 40px;
+  z-index: -1;
+  pointer-events: none;
+}
 
-@property --c1 {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: red;
-}
-@property --c2 {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: red;
-}
 
-@keyframes shift {
-  0%,100% {
-    --c1: red;
-    --c2: blue;
-  }
-  50% {
-    --c1: blue;
-    --c2: red;
-  }
-}
-:root {
-  --global-content-width:1290px;
-  --c1: red;
-  --c2: orange;
-  animation: shift 10s linear infinite;
-  background-image: radial-gradient(
-    circle at bottom in oklch,
-    var(--c1),
-    var(--c2)
-  );
-  min-height: 100%;
-}

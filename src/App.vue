@@ -8,6 +8,7 @@
 
 
 <template>
+  <div class="grid-overlay"></div>
   <headers />
   <main class="wrapper content-width">
 

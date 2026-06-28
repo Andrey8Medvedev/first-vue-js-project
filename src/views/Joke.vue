@@ -49,39 +49,40 @@ function getJoke() {
 <style scoped>
 
   .text-block{
-      /* width: 570px; */
-      
-      border-radius: 10px;
-      background: #2721219f;
-      padding: 20px;
       text-align: center;
-      color: white;
-      backdrop-filter: blur(10px);
-      border: 2px solid rgb(17, 207, 255);
-      margin-bottom: 20px;
-          text-align: center;
+      z-index: 2;
+      background: rgba(10, 10, 11, 0.6);
+      padding: 3rem;
+      border-radius: 24px;
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(200, 207, 195, 0.315);
+      box-shadow: 0 20px 40px rgba(32, 32, 32, 0.5); 
+      margin-bottom: 1em;
   }
   .joke-container{
       display: flex;
       flex-direction: row;
       width: 100%;
       flex-wrap: wrap;
-      justify-content: flex-start;
-      gap:25px;
+      justify-content: space-between;
+
   }
 
   button{
-      display: block;
-      background: #e3dc4b;
-      color: #000000;
-      border-radius: 10px;
-      border: 2px solid #b99935;
-      padding: 10px 15px;
-      cursor: pointer;
-      margin-left: auto;
-      margin-right: auto;
-      margin-top: 15px;
-      font-size: 15px;
+       display: block;
+        width: 30%;
+        margin-top: 1em;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0.6rem 1.2rem;
+        border-radius: 30px;
+        font-weight: 500;
+        cursor: pointer;
+        border: none;
+        color: var(--bg-dark);
+        background: var(--text-main);
+        transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        text-decoration: none;
   }
   button:hover{
         transform: scale(1.1) translateY(-5px);
