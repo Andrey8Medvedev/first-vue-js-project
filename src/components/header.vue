@@ -2,10 +2,10 @@
     <header class="header content-width">
         <nav>
             <ul>
-                <li><a href="/">Главная</a></li>
-                <li><a href="/save/">Сохраненные шутки</a></li>
-                <li><a href="/user/">Пользователь</a></li>
-                <li><a href="/contacts/">Контакты</a></li>
+                <li><RouterLink  to="/">Главная</RouterLink></li>
+                <li><RouterLink  to="/joke/">Генерация шуток</RouterLink></li>
+                <li><RouterLink  to="/savejoke/">Сохраненные шутки</RouterLink></li>
+                <li><RouterLink  to="/contacts/">Контакты</RouterLink></li>
             </ul>
         </nav>
     </header>
@@ -16,7 +16,7 @@
 
 </script>
 
-<style>
+<style scoped>
 .header {
     display: -webkit-box;
     display: -ms-flexbox;

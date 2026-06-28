@@ -13,7 +13,7 @@
 const props = defineProps(['array'])
 </script>
 
-<style>
+<style scoped>
 
 
 .joke{
